@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Payment Tracker Using Firebase – Excel Export & Secure Dashboard</title>
+
+<meta name="description" content="Manage student payments efficiently with a secure Firebase-powered Student Payment Tracker. Monthly and yearly summation, Excel export, edit & delete features, and master filtering for teachers and coaching centers.">
+<meta name="keywords" content="student payment tracker, firebase payment system, coaching center payment tracker, excel export student fees, blogger firebase app, online student payment management">
+
+<!-- SEO Labels -->
+<meta name="author" content="Kazi Humayun Rashid">
+
+<!-- XLSX -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<style>
+body{background:#0b1020;color:#e5e7eb;font-family:system-ui;margin:14px;line-height:1.7}
+h1,h2,h3{text-align:center;color:#22d3ee}
+p{max-width:900px;margin:auto;margin-bottom:14px}
+img{max-width:100%;border-radius:14px;margin:18px auto;display:block}
+.card,.filters{background:#111827;padding:14px;border-radius:14px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+input,select{background:#1e293b;border:1px solid #22d3ee;color:#fff;padding:9px;border-radius:10px}
+button{border:none;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer}
+.add{background:#3b82f6;color:#fff}
+.export{background:linear-gradient(135deg,#10b981,#22d3ee);color:#000}
+.edit{background:#f59e0b;color:#000}
+.delete{background:#ef4444;color:#fff}
+.totals{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.total-box{flex:1;padding:14px;border-radius:14px;text-align:center;background:linear-gradient(135deg,#4f46e5,#6366f1)}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #334155;padding:8px;text-align:center}
+th{background:#020617;color:#22d3ee}
+hr{border:1px solid #1e293b;margin:40px 0}
+#editModal input, #editModal select{background:#1e293b;border:1px solid #22d3ee;color:#fff;padding:8px;border-radius:10px}
+</style>
+</head>
+
+<body>
+
+<h1>🎓 Student Payment Tracker Using Firebase & Excel Export</h1>
+
+<p>
+In today’s fast-paced educational environment, managing student payments efficiently is a necessity for teachers, coaching centers, and private tutors. Manual tracking with notebooks or spreadsheets often leads to errors, missed payments, and time-consuming reconciliation. This Firebase-powered Student Payment Tracker provides a full solution with real-time updates, intuitive interface, editable records, and Excel export for professional reporting. Educators can track payments by month and year, filter records, and view summation at a glance, ensuring complete financial transparency and time-saving automation.
+</p>
+
+<img src="https://i.postimg.cc/j50BZY3Q/pexels_pixabay_301926.jpg" alt="Student payment tracking system for teachers and coaching centers">
+
+<p>
+The system uses Firebase Authentication to assign each user a unique ID, guaranteeing data privacy. Even when hosted on a public Blogger site, each user’s data is isolated. The real-time database ensures instant updates upon adding, editing, or deleting records. Teachers can manage student payments across multiple batches or classes with confidence, while the intuitive dashboard allows filtering, summation, and easy Excel export for reports, audits, or record-keeping.
+</p>
+
+<hr>
+
+<h2>🚀 Key Features</h2>
+
+<p>
+<strong>1. Secure Data Storage:</strong> Firebase provides a secure real-time database, ensuring only authorized users access their own data. Each record is tied to a unique UID.
+</p>
+<p>
+<strong>2. Monthly and Yearly Summation:</strong> Totals are automatically calculated for selected month and year, providing educators with instant insights into revenue and student payments.
+</p>
+<p>
+<strong>3. Master Filtering:</strong> Quickly filter records by student name, month, or year to locate information efficiently.
+</p>
+<p>
+<strong>4. Full Row Editing & Deletion:</strong> Edit any field (student name, month, year, amount, status) in a modal popup or delete records instantly.
+</p>
+<p>
+<strong>5. Excel Export:</strong> Export filtered or full data into a professional Excel file with submission month/year and total summation.
+</p>
+<p>
+<strong>6. Responsive Design:</strong> The tracker works on mobile, tablet, or desktop devices.
+</p>
+
+<img src="https://i.postimg.cc/7hPsWH36/pexels_karola_g_4386341.jpg" alt="Teacher calculating monthly and yearly student payment summary">
+
+<hr>
+
+<h2>🔐 Why Firebase</h2>
+
+<p>
+Firebase provides authentication, secure storage, and real-time updates for modern web applications. Each educator receives a UID to isolate their data, ensuring privacy. Changes in payment records appear instantly, minimizing errors and eliminating manual updates. Firebase is particularly useful when embedding the app on Blogger since sensitive data remains private.
+</p>
+
+<img src="https://i.postimg.cc/x1BZ1S2y/pexels_rdne_8500408.jpg" alt="Secure cloud database using Firebase for private user data">
+
+<hr>
+
+<!-- AdSense In-Article Ad -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3267539539575095" crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block;text-align:center"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-3267539539575095"
+     data-ad-slot="8862559033"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<hr>
+
+<h2>📊 How It Works</h2>
+<p>
+Educators enter student name, payment month and year, amount, and status. Records are stored in Firebase with a timestamp key. Filters allow searching by name, month, or year. Summation boxes show total payments by month or year. Excel export generates offline reports.
+</p>
+
+<hr>
+
+<h2>🎯 Benefits</h2>
+<p><strong>Efficiency:</strong> Automatic calculations, summaries, and exports save time.</p>
+<p><strong>Accuracy:</strong> Real-time updates and cloud storage reduce errors.</p>
+<p><strong>Data Privacy:</strong> Each user’s records are private.</p>
+<p><strong>Accessibility:</strong> Web-based, accessible from any device.</p>
+<p><strong>Professional Reports:</strong> Excel export enables professional accounting and communications.</p>
+
+<hr>
+
+<h2>💻 Live Student Payment Tracker</h2>
+<div class="card">
+<input id="student" placeholder="Student Name">
+<select id="month"><option value="">Month</option>
+<option>January</option><option>February</option><option>March</option><option>April</option>
+<option>May</option><option>June</option><option>July</option><option>August</option>
+<option>September</option><option>October</option><option>November</option><option>December</option>
+</select>
+<select id="year"></select>
+<input id="amount" type="number" placeholder="Amount">
+<select id="status"><option>Paid</option><option>Unpaid</option></select>
+<button class="add" id="addBtn">➕ Add</button>
+<button class="export" id="exportBtn">⬇ Export Sheet</button>
+</div>
+
+<div class="totals">
+<div class="total-box">
+<small>Submission Month</small><br>
+<select id="sMonth"></select>
+</div>
+<div class="total-box">
+<small>Submission Year</small><br>
+<select id="sYear"></select>
+</div>
+<div class="total-box">
+<small>Total Summation</small>
+<h2 id="sumTotal">0 Tk</h2>
+</div>
+</div>
+
+<table>
+<thead>
+<tr><th>Name</th><th>Month</th><th>Year</th><th>Amount</th><th>Status</th><th>Action</th></tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+
+<div class="filters">
+<input id="fName" placeholder="Filter Name">
+<select id="fMonth"><option value="">All Months</option></select>
+<select id="fYear"><option value="">All Years</option></select>
+<button id="filterBtn">Apply</button>
+<button id="clearBtn">Clear</button>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999">
+  <div style="background:#111827;padding:20px;border-radius:14px;width:300px;display:flex;flex-direction:column;gap:10px;">
+    <h3 style="text-align:center;color:#22d3ee">Edit Payment</h3>
+    <input id="editStudent" placeholder="Student Name">
+    <select id="editMonth">
+      <option>January</option><option>February</option><option>March</option>
+      <option>April</option><option>May</option><option>June</option>
+      <option>July</option><option>August</option><option>September</option>
+      <option>October</option><option>November</option><option>December</option>
+    </select>
+    <select id="editYear"></select>
+    <input id="editAmount" type="number" placeholder="Amount">
+    <select id="editStatus"><option>Paid</option><option>Unpaid</option></select>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:10px">
+      <button id="saveEdit" style="background:#3b82f6;color:#fff;padding:8px 12px;border-radius:10px;font-weight:600">Save</button>
+      <button id="cancelEdit" style="background:#ef4444;color:#fff;padding:8px 12px;border-radius:10px;font-weight:600">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const app = initializeApp({
+apiKey:"AIzaSyDU0mbEzPWyZUTkfZ_kvJoYC5mlUXlam2U",
+authDomain:"flutter-ai-playground-57233.firebaseapp.com",
+databaseURL:"https://flutter-ai-playground-57233-default-rtdb.firebaseio.com",
+projectId:"flutter-ai-playground-57233"
+});
+
+const db=getDatabase(app), auth=getAuth(app);
+const el=id=>document.getElementById(id);
+let uid=null, cache=[], viewData=[], currentEditId=null;
+
+// Populate year dropdowns
+for(let y=2026;y<=2040;y++){
+el("year").innerHTML+=`<option>${y}</option>`;
+el("fYear").innerHTML+=`<option>${y}</option>`;
+el("sYear").innerHTML+=`<option>${y}</option>`;
+el("editYear").innerHTML+=`<option>${y}</option>`;
+}
+
+// Months
+const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+months.forEach(m=>{
+el("fMonth").innerHTML+=`<option>${m}</option>`;
+el("sMonth").innerHTML+=`<option>${m}</option>`;
+el("editMonth").innerHTML+=`<option>${m}</option>`;
+});
+
+signInAnonymously(auth);
+
+onAuthStateChanged(auth,u=>{
+if(u){uid=u.uid;onValue(ref(db,`payments/${uid}`),s=>{
+cache=Object.entries(s.val()||{}).map(([id,v])=>({id,...v}));
+viewData=[...cache];
+render(viewData);calc();
+});}
+});
+
+el("addBtn").onclick=()=>{
+if(!el("student").value||!el("month").value||!el("year").value||el("amount").value<=0) return alert("Fill all fields");
+set(ref(db,`payments/${uid}/${Date.now()}`),{
+student:el("student").value,
+month:el("month").value,
+year:el("year").value,
+amount:+el("amount").value,
+status:el("status").value
+});
+el("student").value=""; el("amount").value="";
+};
+
+function render(d){
+el("tbody").innerHTML="";
+d.forEach(r=>{
+el("tbody").innerHTML+=`<tr>
+<td>${r.student}</td><td>${r.month}</td><td>${r.year}</td><td>${r.amount}</td><td>${r.status}</td>
+<td>
+<button class="edit" onclick="editRow('${r.id}')">Edit</button>
+<button class="delete" onclick="delRow('${r.id}')">Delete</button>
+</td>
+</tr>`;
+});
+}
+
+window.delRow=id=>confirm("Delete?")&&set(ref(db,`payments/${uid}/${id}`),null);
+
+// Modal-based full row edit
+window.editRow=id=>{
+const d=cache.find(x=>x.id===id);
+if(!d) return;
+currentEditId=id;
+el("editStudent").value=d.student;
+el("editMonth").value=d.month;
+el("editYear").value=d.year;
+el("editAmount").value=d.amount;
+el("editStatus").value=d.status;
+el("editModal").style.display="flex";
+};
+
+el("saveEdit").onclick=()=>{
+if(!currentEditId) return;
+const student=el("editStudent").value.trim();
+const month=el("editMonth").value;
+const year=el("editYear").value;
+const amount=+el("editAmount").value;
+const status=el("editStatus").value;
+if(!student||!month||!year||amount<=0||!status) return alert("Fill all fields correctly");
+update(ref(db,`payments/${uid}/${currentEditId}`),{student,month,year,amount,status});
+el("editModal").style.display="none";
+currentEditId=null;
+};
+
+el("cancelEdit").onclick=()=>{el("editModal").style.display="none";currentEditId=null;};
+
+// Filter
+el("filterBtn").onclick=()=>{
+viewData=cache.filter(d=>
+(!el("fName").value||d.student.toLowerCase().includes(el("fName").value.toLowerCase())) &&
+(!el("fMonth").value||d.month===el("fMonth").value) &&
+(!el("fYear").value||d.year===el("fYear").value)
+); render(viewData);
+};
+el("clearBtn").onclick=()=>{el("fName").value=el("fMonth").value=el("fYear").value=""; viewData=[...cache]; render(viewData);};
+
+// Summation
+function calc(){
+let s=0;
+cache.forEach(d=>{
+if((!el("sMonth").value||d.month===el("sMonth").value)&&(!el("sYear").value||d.year===el("sYear").value)) s+=d.amount;
+}); el("sumTotal").innerText=s+" Tk";
+}
+el("sMonth").onchange=calc; el("sYear").onchange=calc;
+
+// Export
+el("exportBtn").onclick=()=>{
+if(!viewData.length) return alert("No data");
+const data=[
+["Student Payment Report"],[],
+["Month",el("sMonth").value||"All"],
+["Year",el("sYear").value||"All"],
+["Total",el("sumTotal").innerText],[],
+["Student","Month","Year","Amount","Status"]
+];
+viewData.forEach(d=>data.push([d.student,d.month,d.year,d.amount,d.status]));
+const ws=XLSX.utils.aoa_to_sheet(data);
+const wb=XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(wb,ws,"Payments");
+XLSX.writeFile(wb,"Student_Payments.xlsx");
+};
+</script>
+
+<hr>
+<img src="https://i.postimg.cc/NMFrPDxj/IMG_20260131_175511.jpg" alt="Digital student payment management system dashboard">
+
+<h2>🏁 Conclusion</h2>
+<p>
+This Student Payment Tracker demonstrates the power of modern web technologies combined with Firebase. Educators now have a fast, secure, and mobile-friendly tool for managing payments, generating reports, and ensuring data privacy. It improves efficiency, accuracy, and professionalism in financial management for coaching centers, schools, and private tutors. With Excel export, real-time updates, master filtering, and full row editing, this tool is designed for practical daily use while being fully compatible with Blogger and Google AdSense.
+</p>
+
+<p style="text-align:center;font-weight:600">
+✍️ Written by <strong>Kazi Humayun Rashid</strong>
+</p>
+
+</body>
+</html>
